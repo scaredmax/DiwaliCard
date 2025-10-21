@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Diwali Sparkle Card</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      width: 100vw; height: 100vh; margin: 0; padding: 0; box-sizing: border-box;
+      overflow-x: hidden;
+    }
+    body {
+      min-height: 100vh;
+      min-width: 100vw;
+      overflow: hidden;
+      background: transparent;
+    }
+    .container {
+      width: 100%;
+      height: 100%;
+      --s: 140px;
+      --c1: #ab3e5b;
+      --c2: #ffbe40;
+      --_g: #0000 25%, #0008 47%, var(--c1) 53% 147%, var(--c2) 153% 247%,
+        var(--c1) 253% 347%, var(--c2) 353% 447%, var(--c1) 453% 547%, #0008 553%,
+        #0000 575%;
+      --_s: calc(25% / 3) calc(25% / 4) at 50%;
+      background: radial-gradient(var(--_s) 100%, var(--_g)),
+        radial-gradient(var(--_s) 100%, var(--_g)) calc(var(--s) / 2)
+          calc(3 * var(--s) / 4),
+        radial-gradient(var(--_s) 0, var(--_g)) calc(var(--s) / 2) 0,
+        radial-gradient(var(--_s) 0, var(--_g)) 0 calc(3 * var(--s) / 4),
+        repeating-linear-gradient(
+          90deg,
+          #accec0 calc(25% / -6) calc(25% / 6),
+          #61a6ab 0 calc(25% / 2)
+        );
+      background-size: var(--s) calc(3 * var(--s) / 2);
+      min-height: 100vh;
+      min-width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom) 0;
+    }
+    .diwali-box {
+      background: rgba(255,248,225,0.95);
+      border-radius: 2.2em;
+      box-shadow: 0 8px 36px #ffbe406a, 0 6px 36px #ab3e5b21, 0 0px 22px #e8b0d649;
+      border: 4px solid #b54e9777;
+      text-align: center;
+      padding: 38px 30px 30px 30px;
+      font-family: 'Segoe UI', 'Segoe Script', sans-serif;
+      max-width: min(97vw, 500px);
+      min-width: 220px;
+      margin-bottom: 0px;
+      position:relative;
+      z-index:10;
+      display: flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      animation: box-pop 1s cubic-bezier(.49,1.69,.54,.92);
+      overflow: hidden;
+    }
+    @keyframes box-pop {
+      0% { opacity: 0; transform: scale(0.93) translateY(45px);}
+      70% { opacity: 1; transform: scale(1.03) translateY(-10px);}
+      100% { opacity:1; transform: scale(1) translateY(0);}
+    }
+    .fire-emoji {
+      font-size: 3.1rem;
+      margin-bottom: 0.45em;
+      display: block;
+      filter: drop-shadow(0 0 15px #ffbe40a8) drop-shadow(0 0 10px #ffd585ea);
+      animation: emoji-bounce 1.08s 0.15s cubic-bezier(.23,1.46,.45,.91) both, emoji-glow 1.4s infinite alternate linear;
+    }
+    @keyframes emoji-bounce {
+      0% { transform: scale(0.6) translateY(40px) rotate(-15deg); opacity: 0;}
+      80% { transform: scale(1.16) translateY(-5px) rotate(9deg);}
+      90% { transform: scale(0.96) translateY(2px) rotate(-6deg);}
+      100% { opacity:1; transform: scale(1) translateY(0) rotate(0);}
+    }
+    @keyframes emoji-glow {
+      0% { filter: drop-shadow(0 0 8px #ffbe40cc) drop-shadow(0 0 10px #ffe49c86);}
+      100% { filter: drop-shadow(0 0 22px #ffe450c5) drop-shadow(0 0 14px #ffecc28e);}
+    }
+    .diwali-heading {
+      font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 2.1em;
+      letter-spacing: 0.14em;
+      color: #d7420a;
+      background: none;
+      -webkit-background-clip: initial;
+      -webkit-text-fill-color: initial;
+      background-clip: initial;
+      margin-bottom: 18px;
+      margin-top: 0.1em;
+      user-select: none;
+      animation: none;
+      text-shadow: none;
+    }
+    .message {
+      color: #823c24;
+      font-size: 1.15rem;
+      margin-bottom: 22px;
+      line-height: 1.7;
+      font-family: 'Segoe UI',sans-serif;
+      font-weight: 500;
+      text-align: center;
+      padding: 0 5px;
+      word-break: break-word;
+      animation: fadeinmsg 1.3s 1.29s both cubic-bezier(.19,.94,.59,1.1);
+      position:relative;
+      z-index:1;
+    }
+    @keyframes fadeinmsg {
+      0% { opacity:0; transform:translateY(25px);}
+      100% { opacity:1; transform:translateY(0);}
+    }
+    .from {
+      color: #c94e7b;
+      font-size: 1.07rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 0px;
+      animation: popinfrom 1s 1.34s both cubic-bezier(.17,.96,.56,1.35);
+    }
+    @keyframes popinfrom {
+      0% { opacity: 0; transform:scale(0.7);}
+      80% { opacity:1; transform:scale(1.13);}
+      100% { opacity:1; transform: scale(1);}
+    }
+    .sparkle-bg {
+      pointer-events: none;
+      position: absolute; left:0;top:0; width: 100%; height: 100%;
+      overflow: hidden; z-index: 0;
+    }
+    .sparkle {
+      pointer-events:none;
+      position:absolute; 
+      width:10px; height:10px; border-radius:50%;
+      background: radial-gradient(circle,#fff7dc 75%,#e8bb408a 99%,#fff0 100%);
+      opacity:0.7;
+      animation: sparkleSpin 1.67s infinite linear, sparkleFade 1.9s infinite alternate cubic-bezier(.12,.88,.66,.92);
+      filter: blur(0.7px) brightness(1.25);
+    }
+    @keyframes sparkleSpin {
+      0% { transform: scale(0.65) rotate(0);}
+      50% {transform: scale(1.13) rotate(144deg);}
+      100% {transform: scale(0.82) rotate(360deg);}
+    }
+    @keyframes sparkleFade {
+      0% { opacity:0.7;}
+      40% { opacity:0.97;}
+      100% { opacity:0.4;}
+    }
+    .lamp-wrap {
+      width: 60px;
+      height: 74px;
+      margin: 0 auto 22px auto;
+      display:block;
+      animation: lamp-fadein 1.12s 0.5s both cubic-bezier(.11,.93,.59,1.02);
+    }
+    @keyframes lamp-fadein {
+      0% {opacity:0; transform:scale(0.7) translateY(25px);}
+      100% {opacity:1; transform:scale(1) translateY(0);}
+    }
+    @media (max-width: 660px) {
+      .diwali-box {
+        padding: 22px 6vw;
+        max-width: 97vw;
+      }
+      .diwali-heading {
+        font-size: 1.39em;
+      }
+      .fire-emoji {
+        font-size: 2.3rem;
+      }
+      .lamp-wrap {
+        width: 39px; height: 48px;
+        margin-bottom: 14px;
+      }
+      .message { font-size:1.04rem; }
+    }
+  </style>
+  <!-- Google Fonts Bold -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:800,900&display=swap">
+</head>
+<body>
+  <div class="container">
+    <div class="box-area" style="width:100vw;height:100vh;display:flex;justify-content:center;align-items:center;position:relative;padding:0;">
+      <div class="diwali-box relative">
+        <div class="sparkle-bg" id="sparkle-bg"></div>
+        <div class="lamp-wrap">
+          <svg width="100%" height="100%" viewBox="0 0 58 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="29" cy="58" rx="26" ry="11" fill="#ffe797"/>
+            <ellipse cx="29" cy="58" rx="18" ry="7" fill="#f8c663" filter="url(#lamp-shadow)"/>
+            <path d="M10,56 Q29,66 48,56 Q47,46 29,38 Q11,46 10,56Z" fill="#ffbe40" stroke="#e78a29" stroke-width="2"/>
+            <path d="M24,45 Q29,40 34,45" fill="none" stroke="#d7420a" stroke-linecap="round" stroke-width="2"/>
+            <ellipse cx="29" cy="37" rx="4" ry="7" fill="#fff3be">
+              <animate attributeName="rx" values="4;5;4" dur="2.3s" repeatCount="indefinite"/>
+              <animate attributeName="ry" values="7;9;7" dur="2.8s" repeatCount="indefinite"/>
+            </ellipse>
+            <ellipse cx="29" cy="35" rx="1.3" ry="2.7" fill="#fffbcf">
+              <animate attributeName="ry" values="2.7;4.7;2.7" dur="1.7s" repeatCount="indefinite"/>
+            </ellipse>
+            <ellipse cx="29" cy="30.5" rx="1.2" ry="3" fill="#ffe49e" opacity="0.76">
+              <animate attributeName="rx" values="1.2;1.6;1.2" dur="1.8s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.5;1;0.76" dur="1.4s" repeatCount="indefinite"/>
+            </ellipse>
+            <defs>
+              <filter id="lamp-shadow" x="0" y="0" width="58" height="15">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+                <feOffset dy="2" result="offset"/>
+                <feMerge>
+                  <feMergeNode in="offset"/>
+                  <feMergeNode in="blur"/>
+                </feMerge>
+              </filter>
+            </defs>
+          </svg>
+        </div>
+        <div class="diwali-heading">
+          Happy Diwali
+        </div>
+        <div class="message">
+          May your days be filled with joy, your mind with wisdom, and your heart with the warmth of love and friendship.<br>
+          <b>Let brilliant moments shine as bright as the festival itself!</b>
+        </div>
+        <div class="from">— Ronav Haldankar</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Sparkle effect generator
+    function makeSparkle(sbg, count=28) {
+      const palette = ['#fffde5', '#ffe39c', '#ffe5b1', '#ffd895', '#ffecc2'];
+      for(let i=0;i<count;i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        // Random positions within card area
+        sparkle.style.left = (6 + Math.random()*88) + '%';
+        sparkle.style.top = (6 + Math.random()*76) + '%';
+        const delay = Math.random()*1.2;
+        sparkle.style.animationDelay = `${delay.toFixed(2)}s, ${delay/2.1+.22}s`;
+        sparkle.style.background = `radial-gradient(circle,${palette[Math.floor(Math.random()*palette.length)]} 85%,#fff0 100%)`;
+        sparkle.style.opacity = (0.35 + Math.random()*0.45).toFixed(2);
+        sparkle.style.width = (7 + Math.random()*9) + 'px';
+        sparkle.style.height = sparkle.style.width;
+        sbg.appendChild(sparkle);
+      }
+    }
+    setTimeout(()=>{
+      const sbg = document.getElementById('sparkle-bg');
+      makeSparkle(sbg, window.innerWidth<600? 15 : 38);
+    },400);
+  </script>
+</body>
+</html>
